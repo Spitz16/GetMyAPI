@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Get My API</title>
+    <link rel="stylesheet" media="screen" type="text/css" href="../css/styles.css" /> <!-- Feuille de style -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> <!--  JS Library -->
+</head>
+
+<body>
+<div id="flexbox1"> <!-- Système de flexbox pour le dimensionnement -->
+    <div id="flexbox2">
+
+        <p class="main_section">GetMyAPI : User & Task Manager </p>
+
+        <!-- RETOUR A LA GESTION UTILISATEUR -->
+        <div id="retour_user" class="eltToggle" style="display:none;"><button>Retour à la gestion des utilisateurs</button><br /><br /></div>
+
+        <!-- AFFICHAGE MESSAGE SUCCESS / ERREUR -->
+        <div  id="action_msg"></div>
+
+        <!-- AFFICHAGE D'UN UTILISATEUR -->
+        <h6 class="eltToggle">Afficher un utilisateur</h6>
+        <form id="form_get_user" class="eltToggle" action="" method="post">
+            <input id="get_id" type="text" placeholder="ID" name="get_id" maxlength="50" required />
+            <input type="submit" class="custom_button" value="Afficher" name="afficher" />
+        </form>
+        <div id="user_data" class="divToReset"> <!-- div qui contiendra les informations de l'utilisateur demandé -->
+        </div>
+
+<!-- PARTIE GESTION DES TACHES (à déplacer éventuellement dans un fichier séparé et utiliser un require) -->
+<!-- Classe "eltToggle" définie pour passer de la partie gestion des utilisateurs à la partie gestion des tâches initialement cachée (via fonction toggle()) -->
+
+        <!-- AFFICHAGE D'UNE TACHE -->
+        <h6 class="eltToggle" style="display:none;">Afficher une tâche</h6>
+        <form id="form_get_task" class="eltToggle" action="" method="post"  style="display:none;">
+            <input id="get_id_task" type="text" placeholder="ID" name="get_id_task" maxlength="50" required/>
+            <input type="submit" class="custom_button" value="Afficher cette task" name="afficher" />
+            <div id="task_data" class="divToReset">  <!-- div qui contiendra la tâche demandée -->
+            </div>
+        </form>
+
+        <!-- CREATION D'UNE TACHE -->
+        <h6 class="eltToggle" style="display:none;">Créer une tâche</h6>
+        <form id="form_add_task" class="eltToggle" action="" method="post" style="display:none;">
+            <table>
+                <tr><td><input type="text" placeholder="Titre" name="title" maxlength="50" required/></td></tr>
+                <tr><td><input type="text" placeholder="Date de création" name="creation_date" required/></td></tr>
+                <tr><td><input type="text" placeholder="Statut" name="status" maxlength="50" required/></td></tr>
+                <tr><td><input type="text" placeholder="Description" name="description" maxlength="450" required/></td></tr>
+                <tr><td><br /><input type="submit" class="custom_button" value="Créer cette tâche" name="creer" /></td></tr>
+            </table>
+            <div id="task_created" class="divToReset"><!-- div qui contiendra la tâche créée -->
+            </div>
+        </form>
+
+        <!-- SUPPRIMER UNE TACHE -->
+        <h6 class="eltToggle" style="display:none;">Supprimer une tâche</h6>
+        <form id="form_suppr_task" class="eltToggle" action="" method="post" style="display:none;">
+            <input type="text" placeholder="ID" name="id_suppr" maxlength="50" required/>
+            <input type="submit" class="custom_button" value="Supprimer cette tâche" name="supprimer" />
+        <div id="task_suppr" class="divToReset"><!-- div qui contiendra la tâche supprimée -->
+        </div>
+        </form>
+
+        <!-- AFFICHAGE DES TACHES DE L'UTILISATEUR -->
+        <h6 class="eltToggle" style="display:none;">Afficher les tâches</h6>
+        <div id="get_tasks" class="eltToggle" style="display:none;"><button>Afficher</button>
+        <div id="tasks_data" class="divToReset" style="display:none;"><!-- div qui contiendra les tâches de l'utilisateur -->
+        </div>
+        </div>
+
+<!-- fin PARTIE GESTION DES TACHES -->
+
+    <!-- CREATION D'UN UTILISATEUR -->
+    <h6 class="eltToggle">Créer un utilisateur</h6>
+    <form id="form_add_user" class="eltToggle" action="" method="post">
+        <table>
+            <tr><td><input type="text" placeholder="Nom" name="name" maxlength="50" required/></td></tr>
+            <tr><td><input type="email" placeholder="Email" name="email" maxlength="50" required/></td></tr>
+            <tr><td><br /><input type="submit" class="custom_button" value="Créer" name="creer" /></td></tr>
+        </table>
+        <div id="user_created" class="divToReset"> <!-- div qui contiendra l'utilisateur créé -->
+        </div>
+    </form>
+
+    <!-- SUPPRIMER UN UTILISATEUR -->
+    <h6 class="eltToggle">Supprimer un utilisateur</h6>
+    <form id="form_suppr_user" class="eltToggle" action="" method="post">
+        <input type="text" placeholder="ID" name="id" maxlength="50" required />
+        <input type="submit" class="custom_button" value="Supprimer" name="supprimer" />
+      <div id="user_suppr" class="divToReset"> <!-- div qui contiendra l'utilisateur supprimé -->
+      </div>
+    </form>
+
+    <!-- AFFICHAGE DE TOUS LES UTILISATEURS -->
+    <h6 class="eltToggle">Afficher les utilisateurs</h6>
+        <div id="affichage_users" class="eltToggle"><button>Afficher</button>
+        <div id="users" class="divToReset" style="display:none;"> <!-- div qui contiendra tous les utilisateurs -->
+        </div>
+        </div>
+    </div>
+    </div>
+
+<!-- Scripts JS-->
+    <script src="../js/ajax.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/tasks.js"></script>
+
+</body>
+
+</html>
