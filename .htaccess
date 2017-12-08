@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^users/?$ users_list.php
+RewriteRule ^users/([A-Za-z0-9-]+)/?$    user_data.php?id=$1
+RewriteRule ^users/([A-Za-z0-9-]+)/tasks/?$    task_list.php?id=$1
+RewriteRule ^users/([A-Za-z0-9-]+)/tasks/([A-Za-z0-9-]+)/?$    task_data.php?id=$1&idtask=$2
