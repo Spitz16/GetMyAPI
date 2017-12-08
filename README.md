@@ -3,7 +3,7 @@ Date de création 08/12/2017 par César GOMEZ
 ## Description de l'API
 
 UTILISATION:
-1. Télécharger le dossier GetMyAPI.
+1. Télécharger le dossier GetMyAPI. (Le renommer "GetMyAPI" s'il se télécharge sous un autre nom)
 2. Base de donnée hébergée en local ==> Importer la base de donnée dans le dossier /bdd et l'utiliser avec un serveur local type WAMP (ou modifier la connexion à la bdd dans le header.php et la variable url_server users.js).
 3. Ouvrir ensuite le fichier index.html situé dans le dossier html pour lancer l'API.
 
